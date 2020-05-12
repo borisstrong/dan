@@ -1,0 +1,35 @@
+УСТАНОВКА VENV
+	Переходим в нашу папку 
+	cd /github/dan
+	Устанавливаем виртуальное окружение
+	python -m venv env
+	Запускаем виртуальное окружение
+	/github/dan/env/Scripts/activate.bat
+	Возвращаемся в папку приложения
+	cd /github/dan
+
+
+УСТАНОВКА aiohttp и jinja2
+	Находясь в виртуальном окружении
+	Устанавливаем aiohttp
+	pip install aiohttp
+	pip install cchardet
+	pip install aiodns
+	Устанавливаем шаблоны jinja2
+	pip install jinja2
+	pip install aiohttp_jinja2
+
+
+ЗАПУСК ENV
+	/github/dan/env/Scripts/activate.bat  # Windows
+	/github/dan/env/bin/activate  # Linux
+	cd /github/dan/dan
+
+	
+ЗАПУСК WEB ПРИЛОЖЕНИЯ
+	Переходим в папку приложения 
+	cd /github/dan
+	Запускаем файл
+	python main.py
+	Открываем браузер по адресу:
+	http://127.0.0.1:8080/
