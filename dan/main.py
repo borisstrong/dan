@@ -1,9 +1,12 @@
 import jinja2
 import aiohttp_jinja2
 from aiohttp import web
+import sys
+sys.path.append('system')
+import system
 
 
-@aiohttp_jinja2.template('index.html')
+@aiohttp_jinja2.template('index/index.html')
 async def index(request):
     # Основной режим вывода содержимого
     path = request.match_info.get('url', "Anonymous")
@@ -12,7 +15,9 @@ async def index(request):
         'p': path.split('/'),
         'method': 'get'
     }
+    print('************************************')
     print(request)
+    print('------------------------------------')
     print(REQ['p'])
     text = 'Путь: ' + REQ['path'] + ' Метод:' + REQ['method']
     return {'test_1': 'TEST 1', 'test_2': 'TEST 2'}
@@ -23,13 +28,12 @@ async def ws(request):
     pass
 
 
-async def system(request):
+@aiohttp_jinja2.template('system/main.html')
+async def system_r(request):
     # Админка
-    path = request.match_info.get('url', "Anonymous")
-    REQ = {'path': path, 'method': 'get'}
-    print(request)
-    text = 'SYSTEM - Путь: ' + REQ['path'] + ' Метод:' + REQ['method']
-    return web.Response(text=text)
+    auth = 1
+    system.router(request)
+    return {'AUTH': auth, 'test_1': 'TEST 1', 'test_2': 'TEST 2'}
 
 
 async def edit(request):
@@ -47,7 +51,8 @@ app.add_routes([web.static('/templates', 'templates'),
                 web.static('/media', 'media'),
                 web.get('/ws', ws),  # Веб-сокеты
                 web.get('/edit/{url:.*}', edit),  # Режим визуального редактирования
-                web.get('/system/{url:.*}', system),  # Админка
+                web.get('/system/{url:.*}', system_r),  # Админка
+                web.post('/system/{url:.*}', system_r),  # Админка
                 web.get('/{url:.*}', index)])
 
 if __name__ == '__main__':

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/templates/system/css/style.css" />
+<title>Тестовая веб-сайт страница</title>
+</head>
+<body style="">
+    <header>
+        <div class="w1200 wrap flex_row">
+            <div class="header_left"><a href="/" class="header_title">Административная панель</a><a href="/" class="header_subtitle"></a></div>
+            <div class="header_center"></div>
+            <div class="header_right">
+            </div>
+        </div>
+    </header>
+    <section>
+		{% if AUTH == 1 %}
+			<div>Выводим административную панель.</div>
+		{% else %}
+			<div>
+				<form method="post" action="/system/login">
+					<div><input type="email" name="email" placeholder="email"></div>
+					<div><input type="password" name="psw" placeholder="email"></div>
+					<div><input type="submit" name="submit" value="Вход"></div>
+				</form>
+			</div>
+		{% endif %}
+    </section>
+    <footer>
+        <div> </div>
+		<div>Текст, {{test_1}} текст, {{test_2}} текст</div>
+    </footer>
+
+</body>
+
+<body>
+
+</body>
+</html>
+
+
+
+
+
+
+
