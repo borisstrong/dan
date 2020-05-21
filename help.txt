@@ -28,7 +28,9 @@
 	
 ЗАПУСК WEB ПРИЛОЖЕНИЯ
 	Переходим в папку приложения 
-	cd /github/dan
+	cd /github/dan/dan
+	Запускаем виртуальное окружение
+	/github/dan/env/Scripts/activate.bat
 	Запускаем файл
 	python main.py
 	Открываем браузер по адресу:

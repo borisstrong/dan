@@ -34,6 +34,22 @@ async def system_r(request):
     print('SITE.content -> ', SITE.content)
 
     auth = 1
+
+
+
+    print ('SITE.status -> ', SITE.status)
+
+
+
+
+    if (SITE.status == '404'):
+        print('---404---')
+        raise web.HTTPFound('/page404')
+
+
+
+
+
     return {'AUTH': auth, 'content': SITE.content}
 
 
@@ -44,6 +60,7 @@ async def edit(request):
     print(request)
     text = 'EDIT - Путь: ' + REQ['path'] + ' Метод:' + REQ['method']
     return web.Response(text=text)
+
 
 def site(request):
     SITE = Site()

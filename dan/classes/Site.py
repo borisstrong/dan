@@ -4,6 +4,7 @@ class Site:
         self.req = ''  # Полная строка запроса
         self.path = ''  # Путь
         self.p = ''  # Список элементов пути
+        self.status = ''  # Статус ответа
         self.head = ''  # Материал выводимыей в внутри тега шаблона <head>
         self.tag_title = '' # Тег title
         self.tag_description = '' # Метатег descripton
