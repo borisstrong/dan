@@ -1,18 +1,29 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link rel="stylesheet" href="/templates/lib/DAN/DAN.css" type="text/css" />
+<link rel="stylesheet" href="/templates/lib/contextmenu/contextmenu.css" type="text/css" />
 <link rel="stylesheet" href="/templates/system/css/style.css" />
+<script src="/templates/lib/DAN/DAN.js"></script>
+<script src="/templates/lib/contextmenu/contextmenu.js"></script>
 <title>Тестовая веб-сайт страница</title>
 </head>
-<body style="">
-    <header>
-        <div class="w1200 wrap flex_row">
-            <div class="header_left"><a href="/" class="header_title">Административная панель</a><a href="/" class="header_subtitle"></a></div>
-            <div class="header_center"></div>
-            <div class="header_right">
-            </div>
-        </div>
-    </header>
+<body>
+	<header>
+		<div>
+			<a href="/system" class="header_block">
+				<svg><use xlink:href="/templates/system/svg/sprite.svg#home"></use></svg>
+				<div>Главная</div>
+			</a>
+		</div>
+		<div>22222</div>
+		<div class="flex_row">
+			<a href="/" target="blank" class="header_block">
+				<svg><use xlink:href="/templates/system/svg/sprite.svg#eye"></use></svg>
+				<div>Просмотр</div>
+			</a>
+		</div>
+	</header>
     <section>
 		{% if AUTH != 1 %}
 			<div>
@@ -23,8 +34,7 @@
 				</form>
 			</div>
 		{% else %}
-			<div>Выводим административную панель.</div>
-			<div>{{ content }}</div>
+			{{ content | safe }}
 		{% endif %}
     </section>
     <footer>

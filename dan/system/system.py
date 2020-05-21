@@ -14,11 +14,6 @@ def router(SITE):
         else:
             print ('Редирект на страницу SYSTEM')
 
-        print(SITE.p)
-        SITE.content += '/SYSTEM'
-
-
-
         # Вызов функций по ключу
         functions = {
             'catalog': catalog
@@ -27,11 +22,8 @@ def router(SITE):
         }
 
         if (SITE.p[0] not in functions):
-            # Ошибка 404
+            # Если функция не существует - 404
             raise web.HTTPNotFound()
 
-
-        # Проверка существования функции
+        # Вызов функции
         functions[SITE.p[0]](SITE)
-
-    # CONTENT['component']
