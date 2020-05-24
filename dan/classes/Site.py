@@ -1,10 +1,11 @@
 class Site:
     def __init__(self):
-        self.method = 'GET'  # Метод передачи данных
-        self.req = ''  # Полная строка запроса
+        self.db = False  # Объект подключения к БД
+        self.request = False   # request aiohttp
+        # self.request.method = 'GET' / 'POST' / 'PUT' - метод передачи данных
+        self.post = False  # объект post
         self.path = ''  # Путь
         self.p = ''  # Список элементов пути
-        self.status = ''  # Статус ответа
         self.head = ''  # Материал выводимыей в внутри тега шаблона <head>
         self.tag_title = '' # Тег title
         self.tag_description = '' # Метатег descripton

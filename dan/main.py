@@ -1,6 +1,8 @@
 import jinja2
 import aiohttp_jinja2
 from aiohttp import web
+import pymysql
+import pymysql.cursors
 import sys
 sys.path.append('classes')
 from classes.Site import Site
@@ -13,7 +15,6 @@ async def index(request):
     # Основной режим вывода содержимого
     SITE = site(request)
     print('************************************')
-    print(SITE.path, SITE.method)
 
     return {'test_1': 'TEST 1', 'test_2': 'TEST 2'}
     # return web.Response(text=text)
@@ -28,27 +29,11 @@ async def system_r(request):
     # Админка
     SITE = site(request)
     print('************************************')
-    print(SITE.path, SITE.method)
 
+    SITE.post = await request.post()  # Ждём получение файлов методом POST
     system.router(SITE)
-    print('SITE.content -> ', SITE.content)
 
     auth = 1
-
-
-
-    print ('SITE.status -> ', SITE.status)
-
-
-
-
-    if (SITE.status == '404'):
-        print('---404---')
-        raise web.HTTPFound('/page404')
-
-
-
-
 
     return {'AUTH': auth, 'content': SITE.content}
 
@@ -56,18 +41,30 @@ async def system_r(request):
 async def edit(request):
     # Режим визуального редактирования
     path = request.match_info.get('url', "Anonymous")
-    REQ = {'path': path, 'method': 'get'}
     print(request)
     text = 'EDIT - Путь: ' + REQ['path'] + ' Метод:' + REQ['method']
     return web.Response(text=text)
 
 
 def site(request):
+    con = pymysql.connect(
+        host='localhost',
+        user='dan',
+        password='LpVENmy9h5lcIMjs',
+        db='dan_py',
+        charset='utf8mb4',
+        cursorclass=pymysql.cursors.DictCursor
+    )
     SITE = Site()
+    SITE.db = con.cursor()
     path = request.match_info.get('url', '')
     SITE.path = path
     SITE.p = path.split('/')
-    SITE.method = 'GET'
+    i = len(SITE.p)
+    while i < 7:
+        SITE.p.append('')
+        i += 1
+    SITE.request = request
 
     return SITE
 

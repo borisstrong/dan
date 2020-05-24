@@ -20,6 +20,20 @@
 	pip install aiohttp_jinja2
 
 
+УСТАНОВКА MySQL
+	pip install PyMySQL
+	На Windows ставим XAMPP, на Linux LAMP
+	Запускаем PhpMyadmin
+	Создаем базу данных 'dan_py'
+	Создаём пользователя - открываем Бд 'mysql' -> таблица 'user' -> Добавить учетную запись пользователя -> 
+		пользователь -> dan
+		пароль -> LpVENmy9h5lcIMjs
+		типы привелегий - ставим галочки 'данные' и 'структура'
+	Создаём таблицу 'dan_py', ставим соответствие 'utf8mb4_general_ci'
+	Открываем Бд 'mysql' -> таблица 'user' -> редактирование привелегий -> закладка 'Базы данных' -> выбираем 'dan_py' -> сохраняем
+	Выполняем запрос, который находится в файле create_table.sql
+
+
 ЗАПУСК ENV
 	/github/dan/env/Scripts/activate.bat  # Windows
 	/github/dan/env/bin/activate  # Linux

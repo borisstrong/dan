@@ -9,7 +9,7 @@ def router(SITE):
 
     if (auth != 1):
         # Если нет авторизации
-        if (SITE.method == 'POST' and SITE == 'login'):
+        if (SITE.request.method == 'POST' and SITE == 'login'):
             print ('Проверка логина / пароля')
         else:
             print ('Редирект на страницу SYSTEM')
