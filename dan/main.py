@@ -53,6 +53,7 @@ def site(request):
         password='LpVENmy9h5lcIMjs',
         db='dan_py',
         charset='utf8mb4',
+        autocommit=True,
         cursorclass=pymysql.cursors.DictCursor
     )
     SITE = Site()

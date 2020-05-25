@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS `component` (
 `id` int(10) unsigned NOT NULL,
   `component` varchar(255) NOT NULL,
-  `type` varchar(50) NOT NULL,
+  `url` varchar(50) NOT NULL,
   `name` varchar(255) NOT NULL,
   `settings` text NOT NULL,
   `ordering` int NOT NULL

@@ -30,7 +30,7 @@ def edit(SITE):
 				<div class="flex_row p_5_20">
 					<div class="tc_item_l">URL адрес каталога</div>
 					<div class="tc_item_r flex_grow">
-						<input id="sef" class="input" name="sef" placeholder="catalog" required value="''' + catalog['url'] + '''">
+						<input id="url" class="input" name="url" placeholder="catalog" required value="''' + catalog['url'] + '''">
 						<div id="url_status"></div>
 					</div>
 				</div>

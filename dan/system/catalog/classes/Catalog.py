@@ -6,6 +6,12 @@ class Catalog:
         self.db.execute("SELECT * FROM component ORDER BY ordering")
         rows = self.db.fetchall()
         return rows if len(rows) > 0 else False
+    
+    def checkUrl(self, url):
+        sql = "SELECT id FROM component WHERE url = %s LIMIT 1"
+        self.db.execute(sql, url)
+
+        return self.db.fetchone()
 
 
     """
