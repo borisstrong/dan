@@ -9,6 +9,15 @@
 <title>Тестовая веб-сайт страница</title>
 </head>
 <body>
+	{% if AUTH != 1 %}
+		<div class="form_auth">
+			<form method="post" action="/system/login">
+				<div><input class="input" type="email" name="email" placeholder="email"></div>
+				<div><input class="input" type="password" name="psw" placeholder="password" required></div>
+				<div><input class="form_auth_submit" type="submit" name="submit" value="Вход"></div>
+			</form>
+		</div>
+	{% else %}
 	<header>
 		<div>
 			<a href="/system/" class="header_block">
@@ -25,18 +34,9 @@
 		</div>
 	</header>
     <section>
-		{% if AUTH != 1 %}
-			<div class="form_auth">
-				<form method="post" action="/system/login">
-					<div><input class="input" type="email" name="email" placeholder="email"></div>
-					<div><input class="input" type="password" name="psw" placeholder="password" required></div>
-					<div><input class="form_auth_submit" type="submit" name="submit" value="Вход"></div>
-				</form>
-			</div>
-		{% else %}
-			{{ content | safe }}
-		{% endif %}
+		{{ content | safe }}
     </section>
+	{% endif %}
     <footer>
         <div> </div>
     </footer>

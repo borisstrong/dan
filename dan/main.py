@@ -33,7 +33,7 @@ async def system_r(request):
     SITE.post = await request.post()  # Ждём получение файлов методом POST
     system.router(SITE)
 
-    auth = 1
+    auth = 0
 
     return {'AUTH': auth, 'content': SITE.content}
 
@@ -49,8 +49,8 @@ async def edit(request):
 def site(request):
     con = pymysql.connect(
         host='localhost',
-        user='dan',
-        password='LpVENmy9h5lcIMjs',
+        user='root',
+        password='',
         db='dan_py',
         charset='utf8mb4',
         autocommit=True,

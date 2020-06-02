@@ -13,7 +13,7 @@ def router(SITE):
             print ('Проверка логина / пароля')
         else:
             print ('Редирект на страницу SYSTEM')
-
+			
         # Вызов функций по ключу
         functions = {
             'catalog': catalog
