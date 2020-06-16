@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,500,500i,700,700i,900,900i');
+
 html, body {
 	height: 100%;
 	margin: 0;
@@ -524,3 +526,90 @@ textarea.input {
 .form_auth_submit:hover {
 	transform:scale(1.05);
 	}
+	
+.flex_row {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.column_container {
+  min-height:100vh;
+  /*background:#f5f5f5;*/
+      background: url(https://www.kudatouroperator.it/wp-content/uploads/2016/04/EMIRATI-ARABI-DUBAI-Fotolia_170667573_Subscription_XXL.jpg);
+    background-size: cover;
+    background-position: center;
+}
+.column_250 {
+  align-items:center;
+  width:250px;
+  background:rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.column_centr {
+  font-family: 'Roboto', sans-serif;
+  max-width:600px;
+  padding:20px;
+  color:#fff;
+  flex-grow:1;
+  background:#fff;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  background:rgba(60, 60, 60, 0.8);
+  backdrop-filter: blur(10px);
+  box-shadow: 0px 3px 6px #0000001a;
+}
+
+
+.column_250_centr {
+  width:100%;
+}
+
+.column_250_block_container {
+  justify-content:center;
+}
+
+
+.column_250_block {
+  font-family: 'Roboto', sans-serif;
+	margin: 5px;
+	padding: 10px 5px;
+	border-radius: 15px;
+	height: 90px;
+	width: 90px;
+	box-sizing: border-box;
+	transition:0.3s;
+	display: flex;
+	align-items: center;
+  justify-content:center;
+	font-size: 11px;
+	flex-direction: column;
+	text-align: center;
+	font-weight: 400;
+	background: #f5f5f5;
+	cursor:pointer;
+	color: #222;
+}
+
+.column_250_block:hover {
+	color: #222;
+	transform: scale(1.05);
+}
+
+.column_250_block svg {
+	width: 40px;
+	height: 40px;
+	padding-bottom: 5px;
+	fill: #222;
+	border-radius: 10px;
+	padding: 5px;
+	margin-bottom: 5px;
+	transition: 0.3s;
+}
+
+.base_64_img {
+  max-width:30px;
+  max-height:30px;
+  margin-bottom:10px;
+}
